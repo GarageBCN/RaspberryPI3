@@ -18,7 +18,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(17, GPIO.OUT)
 GPIO.setup(27, GPIO.IN)
 GPIO.output(17,False)
-lastchange = value
+ledvalue = lastchange = value
 while (True):
     #try :
 	value = GPIO.input(27)
