@@ -8,7 +8,6 @@ def handler(signum, frame):
 
     GPIO.cleanup()
 
-# Set the signal handler and a 5-second alarm
 signal.signal(signal.SIGTERM, handler)
 
 
