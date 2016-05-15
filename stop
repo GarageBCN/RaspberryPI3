@@ -1,0 +1,3 @@
+#!/bin/bash
+TESTLED_ID=$(docker ps | grep testled | cut -d\  -f1)
+docker stop TESTLED_ID
