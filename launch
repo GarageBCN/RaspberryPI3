@@ -19,5 +19,5 @@ else
         . ${1}/run_opts
     fi
 
-    docker run -d ${OPTS} garagebcn/${1}
+    docker run -d ${OPTS} garagebcn/${1} python /${1}.py ${ARGS}
 fi
