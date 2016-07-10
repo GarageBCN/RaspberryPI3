@@ -8,7 +8,24 @@ During the May 14th to 15th hackathon, we started working on having Python in Ra
 
 ## RaspberryPi3 setup
 
-TODO
+First, on a fresh [Raspbian latest](https://downloads.raspberrypi.org/raspbian_latest) install, setup docker:
+
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get install -y apt-transport-https
+    wget -q https://packagecloud.io/gpg.key -O - | sudo apt-key add -
+    echo 'deb https://packagecloud.io/Hypriot/Schatzkiste/debian/ wheezy main' | sudo tee /etc/apt/sources.list.d/hypriot.list
+    sudo apt-get update
+    sudo apt-get install -y docker-hypriot
+    sudo systemctl enable docker
+    sudo service docker start
+    
+To check docker is ok, do the following commands:
+
+    sudo service docker status
+    sudo docker ps
+    
+The first command output should state the docker daemon is `active (running)`, and the second command output should just print an empty table with headers, saying `CONTAINER ID      IMAGE...`.
 
 ## Wiring for testing
 
