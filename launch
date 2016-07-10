@@ -1,14 +1,23 @@
 #!/bin/bash
 
-is_image_present() {
-    [ $(docker images | grep -c ${1}) -eq 1 ];
-}
-
-if is_image_present garagebcn/testled; then
-    echo "No build"
+if [ -z "${1}" ]; then
+    echo "Should specify which spike to launch"
+    exit 1
 else
-    echo "Build required"
-    docker build -t garagebcn/testled .
-fi
+    is_image_present() {
+        [ $(docker images | grep -c ${1}) -eq 1 ];
+    }
 
-docker run -d --device /dev/mem:/dev/mem --privileged garagebcn/testled
+    if is_image_present garagebcn/${1}; then
+        echo "No build"
+    else
+        echo "Build required"
+        docker build -t garagebcn/${1} ${1}
+    fi
+
+    if [ -f ${1}/run_opts ]; then
+        . ${1}/run_opts
+    fi
+
+    docker run -d ${OPTS} garagebcn/${1}
+fi

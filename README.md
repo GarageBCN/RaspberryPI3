@@ -27,22 +27,28 @@ To check docker is ok, do the following commands:
     
 The first command output should state the docker daemon is `active (running)`, and the second command output should just print an empty table with headers, saying `CONTAINER ID      IMAGE...`.
 
-## Wiring for testing
+## Test projects and spikes
+
+### LED controlled by button `testled`
+
+#### Wiring for testing
 
 Put a LED and a button on the breadboard, then, connect the following:
 
 - GPIO 17 to LED.
 - GPIO 27 to button with a pull down resistor.
 
-## Run the testing
+**TODO**: Complete description of the circuit.
+
+#### Run the testing
 
 Run the following commands on RaspberryPi3:
 
     git clone https://github.com/GarageBCN/RaspberryPi3
     cd RaspberryPi3
-    sudo bash launch
+    sudo bash launch testled
     
 Once this returned the container hash, the button would act as a switch to light on and off the LED.
 For stopping the container, use the following command:
 
-    sudo bash stop
+    sudo bash stop testled
