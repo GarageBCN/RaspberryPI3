@@ -1,3 +1,3 @@
-[ docker network ls | grep zmq &> /dev/null ] || docker network create zmq
+docker network ls | grep zmq &> /dev/null || docker network create zmq
 OPTS="--name publisher --net zmq -v /var/data:/var/data"
 ARGS="\"tcp://*:5000\" /var/data/source"
