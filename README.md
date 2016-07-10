@@ -23,9 +23,9 @@ Run the following commands on RaspberryPi3:
 
     git clone https://github.com/GarageBCN/RaspberryPi3
     cd RaspberryPi3
-    bash launch
+    sudo bash launch
     
 Once this returned the container hash, the button would act as a switch to light on and off the LED.
 For stopping the container, use the following command:
 
-    bash stop
+    sudo bash stop
