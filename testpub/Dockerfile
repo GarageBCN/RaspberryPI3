@@ -1,6 +1,6 @@
 FROM hypriot/rpi-python
-ADD testsub.py /
+ADD testpub.py /
 RUN apt-get update && \
     apt-get -y install build-essential && \
     pip install pyzmq
-ENTRYPOINT python /testsub.py
+ENTRYPOINT python /testpub.py
