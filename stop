@@ -1,3 +1,8 @@
 #!/bin/bash
-TESTLED_ID=$(docker ps | grep testled | cut -d\  -f1)
-docker stop ${TESTLED_ID}
+if [ -z "${1}" ]; then
+    echo "Should specify which spike you want to stop"
+    exit 1
+else
+    DOCKER_ID=$(docker ps | grep ${1} | cut -d\  -f1)
+    docker stop ${DOCKER_ID}
+fi
