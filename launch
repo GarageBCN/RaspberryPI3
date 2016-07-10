@@ -1,3 +1,14 @@
 #!/bin/bash
-docker build -t garagebcn/testled .
+
+is_image_present() {
+    [ $(docker images | grep -c ${1}) -eq 1 ];
+}
+
+if is_image_present garagebcn/testled; then
+    echo "No build"
+else
+    echo "Build required"
+    docker build -t garagebcn/testled .
+fi
+
 docker run -d --device /dev/mem:/dev/mem --privileged garagebcn/testled
