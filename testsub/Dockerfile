@@ -1,2 +1,2 @@
 FROM garagebcn/base
-ADD testpub.py /
+ADD testsub.py /

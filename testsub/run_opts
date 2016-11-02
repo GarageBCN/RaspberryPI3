@@ -1,0 +1,3 @@
+touch /var/data/output && chmod 666 /var/data/output
+OPTS="--net=host -v /var/data:/var/data"
+ARGS="tcp://127.0.0.1:5000 /var/data/output"
