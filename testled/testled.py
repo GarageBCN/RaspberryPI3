@@ -20,13 +20,9 @@ GPIO.setup(27, GPIO.IN)
 GPIO.output(17,False)
 ledvalue = lastchange = value
 while (True):
-    #try :
-	value = GPIO.input(27)
-	if value and not lastchange:
-            ledvalue = not ledvalue
-	    GPIO.output(17, ledvalue)
-    	lastchange = value
-        time.sleep(0.02)
-    #except (KeyboardInterrupt ):
-    # 	GPIO.cleanup()
-    #  	break
+    value = GPIO.input(27)
+    if value and not lastchange:
+        ledvalue = not ledvalue
+        GPIO.output(17, ledvalue)
+    lastchange = value
+    time.sleep(0.02)

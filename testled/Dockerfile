@@ -1,6 +1,3 @@
-FROM hypriot/rpi-python
+FROM garagebcn/base
 ADD testled.py /
-RUN apt-get update && \
-    apt-get -y install build-essential && \
-    pip install RPi.GPIO
-ENTRYPOINT python /testled.py
+ENTRYPOINT python3 /testled.py

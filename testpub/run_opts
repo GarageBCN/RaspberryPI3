@@ -1,3 +1,4 @@
-docker network ls | grep zmq &> /dev/null || docker network create zmq
-OPTS="--name publisher --net zmq -v /var/data:/var/data"
-ARGS="\"tcp://*:5000\" /var/data/source"
+rm /var/data/source 2>/dev/null || echo "source pipe already removed"
+docker rm publisher 2>/dev/null || echo "publisher container already removed"
+OPTS="--name publisher -p 5000:5000 -v /var/data:/var/data"
+ARGS="tcp://*:5000 /var/data/source"

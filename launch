@@ -12,12 +12,12 @@ else
         echo "No build"
     else
         echo "Build required"
-        docker build -t garagebcn/${1} ${1}
+        bash build ${1}
     fi
 
     if [ -f ${1}/run_opts ]; then
         . ${1}/run_opts
     fi
 
-    docker run -d ${OPTS} garagebcn/${1} python /${1}.py ${ARGS}
+    docker run -d ${OPTS} garagebcn/${1} python3 /${1}.py ${ARGS}
 fi
